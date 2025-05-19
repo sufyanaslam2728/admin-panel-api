@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       reason: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM("sale", "restock", "update"),
         allowNull: false,
       },
       createdAt: {

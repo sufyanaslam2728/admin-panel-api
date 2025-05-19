@@ -6,6 +6,7 @@
   "scripts": {
     "create-db": "cross-env NODE_ENV=development npx sequelize-cli db:create",
     "migration": "npx sequelize-cli db:migrate",
+    "seeder": "cross-env NODE_ENV=development npx sequelize-cli db:seed:all",
     "start": "node .",
     "dev": "nodemon ."
   },

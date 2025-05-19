@@ -12,7 +12,10 @@ module.exports = {
         // onDelete: "CASCADE",
       },
       change: { type: Sequelize.INTEGER, allowNull: false },
-      reason: { type: Sequelize.STRING, allowNull: false },
+      reason: {
+        type: Sequelize.ENUM("sale", "restock", "update"),
+        allowNull: false,
+      },
       createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     });
   },

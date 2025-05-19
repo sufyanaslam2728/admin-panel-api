@@ -5,7 +5,7 @@ exports.createSaleValidator = [
   body("quantity")
     .isInt({ gt: 0 })
     .withMessage("Quantity must be a positive integer"),
-  body("salePrice")
+  body("totalPrice")
     .isFloat({ gt: 0 })
     .withMessage("Sale price must be greater than 0"),
   body("saleDate").isISO8601().withMessage("Invalid sale date format"),

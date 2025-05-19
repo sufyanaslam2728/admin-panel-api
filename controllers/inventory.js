@@ -4,8 +4,12 @@ const { Op } = require("sequelize");
 exports.getInventory = async (req, res) => {
   try {
     const inventory = await Inventory.findAll({
-      model: Product,
-      as: "product",
+      include: [
+        {
+          model: Product,
+          as: "product",
+        },
+      ],
     });
     res.json(inventory);
   } catch (err) {
@@ -16,9 +20,13 @@ exports.getInventory = async (req, res) => {
 exports.getLowStock = async (req, res) => {
   try {
     const inventory = await Inventory.findAll({
-      where: { quantity: { [Op.lt]: 10 } },
-      include: Product,
-      as: "product",
+      where: { stock: { [Op.lt]: 10 } },
+      include: [
+        {
+          model: Product,
+          as: "product",
+        },
+      ],
     });
     res.json(inventory);
   } catch (err) {
@@ -33,7 +41,7 @@ exports.createInventory = async (req, res) => {
     await InventoryLog.create({
       productId,
       change: stock,
-      reason: "Initial stock",
+      reason: "restock",
     });
     res.status(201).json(inv);
   } catch (err) {
@@ -49,9 +57,16 @@ exports.updateInventory = async (req, res) => {
     const inventory = await Inventory.findOne({ where: { productId } });
     if (!inventory)
       return res.status(404).json({ error: "Inventory not found" });
+    let change;
+    if (reason === "restock") {
+      change = newStock + inventory.stock;
+    } else if (reason === "sale") {
+      change = inventory.stock - newStock;
+    } else {
+      change = newStock;
+    }
 
-    const change = newStock - inventory.quantity;
-    inventory.quantity = newStock;
+    inventory.stock = change;
     await inventory.save();
 
     await InventoryLog.create({ productId, change, reason });

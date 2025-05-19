@@ -6,8 +6,12 @@ exports.getSales = async (req, res) => {
     const { startDate, endDate, categoryId, productId } = req.query;
 
     const where = {};
-    if (startDate && endDate)
-      where.saleDate = { [Op.between]: [startDate, endDate] };
+    if (startDate && endDate) {
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+      end.setHours(23, 59, 59, 999); // Include the full day
+      where.saleDate = { [Op.between]: [start, end] };
+    }
     if (productId) where.productId = productId;
 
     const include = [];
@@ -32,8 +36,13 @@ exports.getSales = async (req, res) => {
 
 exports.createSale = async (req, res) => {
   try {
-    const { productId, quantity, price, date } = req.body;
-    const sale = await Sale.create({ productId, quantity, price, date });
+    const { productId, quantity, totalPrice, saleDate } = req.body;
+    const sale = await Sale.create({
+      productId,
+      quantity,
+      totalPrice,
+      saleDate,
+    });
 
     const inventory = await require("../models").Inventory.findOne({
       where: { productId },
@@ -44,7 +53,7 @@ exports.createSale = async (req, res) => {
       await require("../models").InventoryLog.create({
         productId,
         change: -quantity,
-        reason: "Sale",
+        reason: "sale",
       });
     }
 
