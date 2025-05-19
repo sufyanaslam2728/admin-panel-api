@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
     },
   });
+  Category.associate = (models) => {
+    Category.hasMany(models.Product, {
+      foreignKey: "categoryId",
+      as: "products",
+    });
+  };
 
   return Category;
 };

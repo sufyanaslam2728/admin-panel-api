@@ -13,20 +13,20 @@ const {
 } = require("../validators/category");
 const validateRequest = require("../middlewares/validateRequest");
 
+router.get("/categories", getAllCategories);
+router.get("/categories/:id", getCategoryById);
 router.post(
-  "/category",
+  "/categories",
   createCategoryValidator,
   validateRequest,
   createCategory
 );
-router.get("/category", getAllCategories);
-router.get("/category:id", getCategoryById);
 router.put(
-  "/category:id",
+  "/categories/:id",
   updateCategoryValidator,
   validateRequest,
   updateCategory
 );
-router.delete("/category:id", deleteCategory);
+router.delete("/categories/:id", deleteCategory);
 
 module.exports = router;
