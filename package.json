@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "create-db": "cross-env NODE_ENV=development npx sequelize-cli db:create",
-    "migration": "npx sequelize-cli db:migrate",
+    "migration": "cross-env NODE_ENV=development npx sequelize-cli db:migrate",
     "seeder": "cross-env NODE_ENV=development npx sequelize-cli db:seed:all",
+    "appdb:setup": "npm run create-db && npm run migration && npm run seeder",
     "start": "node .",
     "dev": "nodemon ."
   },

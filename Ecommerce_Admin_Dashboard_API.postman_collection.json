@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "c298e5b0-10f7-4587-823e-858043b8e096",
+		"name": "E-commerce Admin Dashboard API",
+		"description": "Postman collection for the e-commerce admin dashboard API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30450637"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Mobiles\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/categories/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Mobiles & Accessories\"\n  \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/categories/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/categories/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test Product\",\n  \"description\": \"A sample test product\",\n  \"price\": 19.99,\n  \"categoryId\": 4\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Test Mobile\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/products/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Get Inventory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/inventories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory Logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/inventories/logs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"inventories",
+								"logs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory Low Stock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/inventories/lowStock",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"inventories",
+								"lowStock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Inventory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\":4,\n  \"stock\": 50\n\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/inventories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"newStock\": 9,\n  \"reason\": \"update\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/inventories/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"inventories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "Get Sales",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/sales?startDate=2024-05-14&endDate=2025-06-15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sales"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2024-05-14"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-06-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sale",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": 1,\n  \"quantity\": 3,\n  \"totalPrice\": 59.97,\n  \"saleDate\": \"2025-05-19\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/sales",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sale",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n  \"saleDate\": \"2025-05-16\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/sales/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sales",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Revenue",
+			"item": [
+				{
+					"name": "Get Sales Revenue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/sales/revenue?groupBy=monthly",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sales",
+								"revenue"
+							],
+							"query": [
+								{
+									"key": "groupBy",
+									"value": "monthly"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Compare Revenue",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"period1\": {\n    \"start\": \"2024-01-01\",\n    \"end\": \"2024-03-31\"\n  },\n  \"period2\": {\n    \"start\": \"2024-04-01\",\n    \"end\": \"2024-06-30\"\n  },\n  \"categoryId\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/sales/revenue/compare",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sales",
+								"revenue",
+								"compare"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api"
+		}
+	]
+}

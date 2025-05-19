@@ -8,8 +8,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Products", key: "id" },
-        // onUpdate: "CASCADE",
-        // onDelete: "CASCADE",
       },
       change: { type: Sequelize.INTEGER, allowNull: false },
       reason: {
